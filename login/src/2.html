@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: linear-gradient(rgba(201, 187, 249, 0.305),rgba(175, 175, 254, 0.4)),url(wp6.jpg);
+            margin: 0;
+        }
+
+        .signin-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 450px;
+            
+            text-align: center;
+        }
+
+        .signin-header {
+            background: #007BFF;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .signin-header h2 {
+            margin: 0;
+        }
+
+        .signin-form {
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+        }
+
+        .form-column {
+            flex: 1;
+            margin-right: 10px;
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+
+        .form-column:last-child {
+            margin-right: 0;
+        }
+
+        .form-group {
+            margin-bottom: 2px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: black;
+            margin-bottom: 2px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin: 0.1px;
+        }
+
+        .signin-btn {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signin-btn:hover {
+            background: #003976;
+        }
+
+        .login-link {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .login-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signin-container">
+        <div class="signin-header">
+            <h2>Sign Up</h2>
+        </div>
+        <div class="signin-form">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="username">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="password">Last Name:</label>
+                    <input type="password" id="lastname" name="lastname" required>
+                </div>
+            </div>
+        </div>
+        <div class="signin-form">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="username">ID:</label>
+                    <input type="text" id="id" name="id" required>
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="password">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+        </div>
+        <div class="signin-form">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="username">Phone Number:</label>
+                    <input type="number" id="num" name="num" required>
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="password">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+        </div>
+        <div class="signin-form">
+            <div class="form-column">
+                <div class="form-group">
+                    <label for="username">Address</label>
+                    <input type="textarea" id="add" name="add" required>
+                </div>
+            </div>
+           
+        </div>
+        <button type="button" class="signin-btn">Sign Up</button>
+        <p class="login-link">Already have an account? <a href="loginform.html">Log In</a></p>
+    </div>
+</body>
+</html>

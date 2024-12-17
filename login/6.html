@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Desphixs - NodeJs Login and Register</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <style>
+        body {
+    background-color: #fff;
+    color: #777;
+    font: normal 15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+p {
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+h1 {
+    font-family: 'Crete Round', serif;
+    font-weight: bold;
+    color: #444;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-weight: 300;
+    color: #444;
+    font-size: 55px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+h3 {
+    font-size: 30px;
+    color: #444;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+h4 {
+    font-size: 24px;
+    color: #444;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+h5 {
+    font-size: 15px;
+    color: #444;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+a {
+    text-decoration: none;
+    color: #444;
+}
+a:hover {
+    color: #02b8dd;
+}
+strong {
+    font-weight: bold;
+}
+small {
+    font-size: 13px;
+    color: #777;
+    font-style: italic;
+}
+.clear {
+    clear: both;
+}
+.wrapper {
+    margin: 0 auto;
+    padding: 0 10px;
+    width: 940px;
+}
+header {
+    height: 50px;
+}
+header h1 {
+    float: left;
+    margin-top: 32px;
+}
+header h1 .color {
+    color: #02b8dd;
+}
+header nav {
+    float: right;
+}
+header nav ul li {
+    display: inline-block;
+    margin-top: 50px;
+}
+header nav ul li a {
+    color: #444;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin-right: 20px;
+}
+.header-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333; /* Adjust the background color as needed */
+            padding: 10px;
+            z-index: 1000;
+            transition: top 0.3s; /* Add smooth transition for hiding/showing the bar */
+        }
+
+        .header-buttons button {
+            margin: 0 10px;
+        }
+#hero-image {
+    height: 650px;
+    padding-top: 1px;
+    background: #e8eced url('https://cdn.pixabay.com/photo/2018/02/25/21/34/temple-3181803_1280.jpg') no-repeat center;
+}
+#hero-image h2 {
+    margin: 180px 0 40px 0;
+}
+.button-1 {
+    display: block;
+    text-align: center;
+    background: #444;
+    border-radius: 3px;
+    color: #fff;
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    margin: 0 auto;
+}
+.button-1:hover {
+    background-color: #02b8dd;
+    color: #fff;
+}
+#features ul {
+    margin: 80px 0;
+}
+#features ul li {
+    width: 300px;
+    padding-top: 140px;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+}
+#features ul li.feature-1 {
+    background: url('../images/features-icon-1.png') no-repeat top center;
+}
+#features ul li.feature-2 {
+    background: url('../images/features-icon-2.png') no-repeat top center;
+}
+#features ul li.feature-3 {
+    background: url('../images/features-icon-3.png') no-repeat top center;
+}
+#primary-content {
+    background-color: #f8fafa;
+    padding: 60px 0;
+    text-align: center;
+}
+#primary-content h3 {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 400px;
+    border-bottom: 1px solid #02b8dd;
+    padding: 0 0 20px 0;
+}
+#primary-content a img {
+    margin: 20px 0;
+}
+#secondary-content {
+    padding: 60px 0;
+    text-align: center;
+}
+#secondary-content article {
+    width: 460px;
+    height: 270px;
+    float: left;
+    background-color: #f5f5f5;
+}
+#secondary-content article:first-child {
+    margin-right: 20px;
+}
+#secondary-content article .overlay {
+    background: rgba(255, 255, 255, .95);
+    height: 230px;
+    width: 190px;
+    padding: 20px;
+}
+article h4 {
+    border-bottom: 1px solid #02b8dd;
+    padding-bottom: 20px;
+}
+.more-link {
+    border: 1px solid #02b8dd;
+    color: #02b8dd;
+    padding: 6px 20px;
+    border-radius: 3px;
+}
+.more-link:hover {
+    background-color: #02b8dd;
+    color: #fff;
+}
+#cta {
+    padding: 60px 0;
+    text-align: center;
+}
+#cta h3 {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 400px;
+    border-bottom: 1px solid #02b8dd;
+    padding: 0 0 20px 0;
+}
+.button-2 {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #02b8dd;
+    color: #02b8dd;
+    border-radius: 3px;
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+}
+.a {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+.button-2:hover {
+    background-color: #02b8dd;
+    color: #fff;
+}
+footer {
+    padding: 60px 0;
+    background-color: #f8fafa;
+}
+#footer-info {
+    width: 380px;
+    float: left;
+    margin-top: 10px;
+}
+#footer-links {
+    width: 520px;
+    float: right;
+}
+#footer-links ul {
+    width: 150px;
+    float: left;
+    margin-left: 20px;
+}
+#footer-links ul li {
+    margin: 10px 0;
+}
+    </style>
+</head>
+ 
+<body>
+    <header class="mb-auto">
+        <!-- Add header with buttons -->
+        <div class="header-buttons">
+            <!-- Add your logo here -->
+            <a href="/" class="text-white">
+                <button class="btn btn-dark text-white" id="logoButton">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/408151135/display_1500/stock-vector-vector-feather-logo-illustration-408151135.jpg" alt="Logo" style="height: 30px; width: 30px; margin-right: 10px;">
+                </button>
+            </a>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <form id="logoutForm" action="/logout?_method=DELETE" method="POST">
+                    <button class="nav-link fw-bold py-1 px-0 btn p=3 btn-dark text-white" type="submit">Logout</button>
+                </form>
+            </nav>
+            <!-- Add Tribe button here -->
+            <button class="btn btn-dark text-white" id="tribeButton">Tribe</button>
+            <button class="btn btn-dark text-white" id="projectsButton">Projects</button>
+            <!-- Add View button here -->
+            <button class="btn btn-dark text-white" id="viewButton">View</button>
+            <!-- Add Admin button here -->
+            <button class="btn btn-dark text-white" id="adminButton">Admin</button>
+        </div>
+    </header>
+    
+    <div id="hero-image">
+        <div class="wrapper">
+            <h2 style="color: #f5f5f5; font-family: Georgia, 'Times New Roman', Times, serif;"><strong>Hello <%= name %></strong><br/>
+            <span style="font-size: medium;">TRIBAL DEVELOPMENT FRAMEWORK</span></h2>
+        </div>
+    </div>
+    
+    <div id="features">
+        <div class="wrapper">
+            <ul>
+                <li class="feature-2">
+                    <h4>Ready to Go</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mollis turpis ac libero interdum, id fringilla purus feugiat. Etiam malesuada mattis nibh at bibendum.</p>
+                </li>
+                <li class="feature-3">
+                    <h4>Ready to Go</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mollis turpis ac libero interdum, id fringilla purus feugiat. Etiam malesuada mattis nibh at bibendum.</p>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="wrapper">
+            <div id="footer-info">
+                <p>Copyright 2023 CompanyName. All rights reserved.</p>
+                <p><a href="#">Terms of Service</a> I <a href="#">Privacy</a></p>
+            </div>
+            <div id="footer-links">
+                <ul>
+                    <li><h5>Company</h5></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">What We Do</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+                <ul>
+                    <li><h5>Company</h5></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">What We Do</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+                <ul>
+                    <li><h5>Company</h5></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Meet The Team</a></li>
+                    <li><a href="#">What We Do</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- Script to navigate to tribe.html when the Tribe button is clicked -->
+    <script>
+        document.getElementById('tribeButton').addEventListener('click', function () {
+            window.location.href = '/tribe';
+        });
+
+        document.getElementById('viewButton').addEventListener('click', function () {
+            window.location.href = '/view1';
+        });
+
+        document.getElementById('adminButton').addEventListener('click', function () {
+            window.location.href = '/admin';
+        });
+
+        document.getElementById('logoButton').addEventListener('click', function () {
+            window.location.href = '/';
+        });
+
+        // Add script to submit the logout form and redirect to the login page
+        document.getElementById('logoutForm').addEventListener('submit', function () {
+            window.location.href = '/login';
+        });
+        document.getElementById('projectsButton').addEventListener('click', function () {
+        window.location.href = '/viewprojects';
+        });
+    </script>
+</html>

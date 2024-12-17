@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="Home.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Desphixs - NodeJs Login and Register</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+<style>
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: cursive;
+}
+.header-buttons button {
+            margin: 0 10px;
+        }
+body
+{
+background-color: rgb(120, 229, 241);
+}
+.head
+{
+padding: 20px;
+letter-spacing: 1px;
+}
+.bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+.main
+{
+position: absolute;
+}
+.main-nav
+{
+float: left;
+list-style-type: none;
+margin-top: 25px;
+}
+.main-nav li
+{
+display: inline-block;
+}
+.main-nav li a
+{
+text-decoration: none;
+color: rgb(7, 6, 12) ;
+font: bold;
+padding: 4px 8px;
+border: 1px solid transparent;
+transition: 0.6s ease;
+margin: 5px;
+}
+.main-nav li a:hover
+{
+background-color:  rgb(109, 215, 233);
+color: rgb(7, 6, 12);
+font :bold;
+}
+.main-nav li.active a
+{
+background-color: rgb(141, 198, 251);
+color: #000;
+font: bold;
+}
+.body
+{
+width: 95%;
+height: 600px;
+background: rgb(141, 179, 241);
+display: flex ;
+margin: 80px auto;
+}
+.header-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333; /* Adjust the background color as needed */
+            padding: 10px;
+            z-index: 1000;
+            transition: top 0.3s; /* Add smooth transition for hiding/showing the bar */
+        }
+.right-side
+{
+display: flex;
+float: left;
+width: 50%;
+padding: 20px;
+height: 300px;
+}
+.right-side .about-img
+{
+position: absolute;
+top: 175px;
+left: 670px;
+}
+.about-img:hover
+{
+transform: scale(1.1);
+background: #3d3f3f;
+box-shadow: 2px 2px 2px #000;
+z-index: 2;
+}
+.about-img::before
+{
+position: absolute;
+content: '';
+right: -30px;
+top: 15px;
+border: 10px solid rgba(31, 30, 30, 0.5);
+width: 100%;
+height: 100%;
+}
+.about-img img
+{
+height: 450px;
+width: 100%;
+}
+.left-side
+{
+display: flex;
+margin-top: 30px;
+float: left;
+width: 100%;
+padding: 60px;
+height: 400px;
+}
+.info h1
+{
+font-size: 40px;
+margin-left: 35%;
+}
+.info h2
+{
+font-size: 25px;
+margin-left: 40px;
+margin-bottom: 25px;
+margin-top: 25px;
+}
+.info h2 span
+{
+color: whitesmoke;
+font-size: 35px;
+}
+.info p
+{
+line-height: 22px;
+font-size: 20px;
+margin-left: 40px;
+margin-bottom: 25px;
+}
+.info a
+{
+text-decoration: none;
+color: black;
+margin-top: 10px;
+}
+.info a i
+{
+font-size: 1.5rem;
+}
+.container2
+{
+width: 95%;
+height: auto;
+padding: 10px;
+margin: 80px auto;
+display: flex ;
+justify-content: center;
+}
+.box
+{
+width: 380px;
+height: 700px;
+background:  rgb(136, 195, 237);
+margin: 0px 10px;
+transition: 1s;
+}
+.box:hover
+{
+transform: scale(1.1);
+background:  rgb(96, 169, 242);
+box-shadow: 2px 2px 2px #000;
+z-index: 2;
+}
+.box-img img
+{height: 110px;
+width: 110px;
+background-size: cover;
+background-position: center;
+border-radius: 50px;
+transform: translate(-50%,-50%);
+position: relative;
+margin-top: 30%;
+margin-left: 50%;
+}
+.box-text
+{
+padding: 10px;
+margin: 5px;
+}
+.box-text h2
+{
+font-size: 20px;
+margin-left: 25%;
+margin-bottom: 30px;
+color:black;
+}
+.box-text p
+{
+line-height: 22px;
+font-size: 16px;
+margin-left: 20px;
+margin-bottom: 12px;
+color:black;
+}
+.box-text a
+{
+background: rgb(173, 222, 248);
+color: #000;
+padding: 7px 15px;
+display: inline-block;
+text-decoration: none;
+text-transform: capitalize;
+position: relative;
+margin-top: 10% ;
+margin-left: 35% ;
+}
+.box-text a:hover
+{
+background-color:rgb(134, 197, 234);
+color: rgb(134, 192, 243);
+font :bold;}
+footer
+{
+position: absolute;
+top: 1600px;
+background: rgb(165, 202, 248);
+height:350px;
+width: 100vw;
+font-family: cursive;
+padding: 40px;
+}
+.footer-content
+{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+}
+.footer-content hr
+{
+width: 70%;
+margin-left: auto;
+margin-right: auto;
+}
+.footer-content h3
+{
+font-size: 2.0rem;
+font-weight: 400;
+text-transform: uppercase;
+line-height: 3.5rem;
+}
+.socials
+{
+list-style: none;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 1rem 0 3rem 0;
+}
+.socials li
+{
+margin: 0 12px;
+}
+.socials a
+{
+text-decoration: none;
+color: black;
+}
+.socials a i
+{
+font-size: 1.5rem;
+transition: color .4s ease;
+}
+.socials a:hover i
+{
+color: rgb(139, 138, 139);
+}
+.foot_bottom
+{
+background: rgb(96, 211, 246);
+width: 100vw;
+padding: 5px;
+text-align: center;
+height: 50px;
+position: absolute;
+bottom: 10px;
+left: 0;
+}
+.foot_bottom p
+{
+font-size: 16px;
+word-spacing: 2px;
+text-transform: capitalize;
+}
+.foot_bottom span
+{
+text-transform: uppercase;
+opacity: .4;
+font-weight: 200;
+}
+.tribe-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff; /* White background */
+            border: 1px solid #dee2e6; /* Bootstrap border color */
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .tribe-search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tribe-search-input {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .tribe-search-btn {
+            width: 100px;
+        }
+
+        #tribeResults {
+            margin-top: 20px;
+        }
+</style>
+</head>
+<body>
+        <header class="mb-auto"  style="padding: 20;">
+            <!-- Add header with buttons -->
+            <div class="header-buttons">
+                <!-- Add your logo here -->
+                <a href="/" class="text-white"> <!-- Set the href attribute to "/" -->
+                  <button class="btn btn-dark text-white" id="logoButton">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/408151135/display_1500/stock-vector-vector-feather-logo-illustration-408151135.jpg" alt="Logo" style="height: 30px; width: 30px; margin-right: 10px;">
+                  </button>
+                </a>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <form action="/logout?_method=DELETE" method="POST">
+                        <button class="nav-link fw-bold py-1 px-0 btn p=3 btn-dark text-white" type="submit">Logout</button>
+                    </form>
+                </nav>
+                <!-- Add Tribe button here -->
+                <button class="btn btn-dark text-white" id="tribeButton">Tribe</button>
+                <!-- Add View button here -->
+                <button class="btn btn-dark text-white" id="viewButton">View</button>
+                <!-- Add Admin button here -->
+                <button class="btn btn-dark text-white" id="adminButton">Admin</button>
+            </div>
+        </header>
+        <div class="body">
+            <div class="container1">
+            <div class="row">
+            <div class="left-side" >
+            <div class="info">
+                <div class="tribe-container">
+                    <h1 class="mt-4 mb-4">Tribe Page</h1>
+            
+                    <div class="tribe-search-bar">
+                        <input type="text" class="form-control tribe-search-input" id="searchInput" placeholder="Enter Tribe Name">
+                        <button class="btn btn-primary tribe-search-btn" onclick="searchTribe()">Search</button>
+                    </div>
+            
+                    <div id="tribeResults">
+                        <!-- Display search results here -->
+                    </div>
+            
+                    <!-- Add your content here -->
+                    <p class="mt-4">This is a basic Tribe page. Add your content here.</p>
+                </div>
+            </div>
+            </div>
+            <div class="right-side"  >
+            <div class="about-img">
+            <img src="https://cdn.pixabay.com/photo/2020/06/14/15/55/landscape-5298395_1280.jpg" >
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="container2">
+            <div class="box">
+            <div class="box-img">
+            <img src="https://cdn.pixabay.com/photo/2022/11/05/13/41/farm-7571828_640.jpg">
+            </div>
+            <div class="box-text">
+            <h2>Tribal Groups in India</h2>
+            <p>The tribal groups are found in almost every region of the Indian subcontinent. We can classify major tribes in India into four factors such as;
+
+                Geography
+                Language
+                Racial attributes
+                The population size of Indian Tribes</p>
+            </div>
+            </div>
+            <div class="box">
+            <div class="box-img">
+            <img src="https://cdn.pixabay.com/photo/2020/03/29/16/24/sky-4981316_640.jpg">
+            </div>
+            <div class="box-text">
+            <h2>Population Size of Indian Tribes</h2>
+            <p> Scheduled Tribes (ST) account for approximately 8.6% of India's population or approximately 10.4 crore people. Over 730 Scheduled Tribes have been notified under Article 342 of the Indian Constitution. 
+
+                97% of them live in rural areas, while 10% live in cities.
+                According to the 2011 Census, the Bhil tribe is India's largest tribal group, accounting for approximately 38% of the total scheduled tribal population.
+                According to the 2011 Census, Madhya Pradesh has the highest tribal population in India.
+                The overall population has a sex ratio of 940 females per 1000 males, while Scheduled Tribes have a sex ratio of 990 females per thousand males.</p>
+            </div>
+            </div>
+            <div class="box">
+            <div class="box-img">
+            <img src="https://cdn.pixabay.com/photo/2021/06/01/06/38/river-6300715_640.jpg">
+            </div>
+            <div class="box-text">
+            <h2>Economy or Subsistence Pattern of Indian Tribes</h2>
+            <p>Many tribes relied on agriculture for a living, while others were hunter-gatherers or herders. They frequently combined these activities in order to fully utilise the natural resources of the area in which they lived.
+
+                Land and pastures are jointly controlled by a tribal group, which distributes them to households in accordance with its own rules. Some tribes are nomadic and semi nomadic, moving from place to place.</p>
+            </div>
+            </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <!-- Script to navigate to tribe.html when the Tribe button is clicked -->
+  <script>
+        function searchTribe() {
+            const searchInput = document.getElementById('searchInput').value;
+            fetch(`/searchTribe?tribe_name=${searchInput}`)
+                .then(response => response.json())
+                .then(data => {6.
+                    const tribeResultsDiv = document.getElementById('tribeResults');
+                    tribeResultsDiv.innerHTML = ''; // Clear previous results
+                    tribeResultsDiv.innerHTML += '<h3 class="mt-4">Search Results:</h3>';
+                    if (data.length === 0) {
+                        tribeResultsDiv.innerHTML += '<p>No results found.</p>';
+                    } else {
+                        data.forEach(info => {
+                            tribeResultsDiv.innerHTML += `<p>Tribe Name: ${info.tribe_name}, Tribe ID: ${info.tribe_ID}</p>`;
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+    </script>
+  <script>
+      document.getElementById('tribeButton').addEventListener('click', function () {
+          window.location.href = '/tribe';
+      });
+
+      document.getElementById('viewButton').addEventListener('click', function () {
+          window.location.href = '/view1';
+      });
+
+      document.getElementById('adminButton').addEventListener('click', function () {
+          window.location.href = '/admin';
+      });
+
+      document.getElementById('logoButton').addEventListener('click', function () {
+          window.location.href = '/'; 
+      });
+  </script>
+</body>
+</html>

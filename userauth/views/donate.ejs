@@ -1,0 +1,212 @@
+<!-- donate.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            height: 100vh;
+            background: url("https://media.istockphoto.com/id/1426958935/photo/beautiful-scenery-at-lonavala-maharshtra.jpg?s=2048x2048&w=is&k=20&c=2WJlT0Aio54pU94DLjUc6U1V78sJ2zodf1UiaCcJrH8=");
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjusted to cover the entire screen */
+    background-position: center; /* Center the background image */
+        }
+
+        header {
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ccc;
+        }
+        .header-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333; /* Adjust the background color as needed */
+            padding: 10px;
+            z-index: 1000;
+            transition: top 0.3s; /* Add smooth transition for hiding/showing the bar */
+        }
+
+        .header-buttons button {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="mb-auto">
+        <!-- Add header with buttons -->
+        <div class="header-buttons">
+            <!-- Add your logo here -->
+            <a href="/" class="text-white">
+                <button class="btn btn-dark text-white" id="logoButton">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/408151135/display_1500/stock-vector-vector-feather-logo-illustration-408151135.jpg"
+                        alt="Logo" style="height: 30px; width: 30px; margin-right: 10px;">
+                </button>
+            </a>
+            <!-- Add Tribe button here -->
+            <button class="btn btn-dark text-white" id="tribeButton">Tribe</button>
+            <button class="btn btn-dark text-white" id="projectsButton">Projects</button>
+            <!-- Add View button here -->
+            <button class="btn btn-dark text-white" id="viewButton">View</button>
+            <!-- Add Donate button here -->
+            <button class="btn btn-dark text-white" id="donateButton">Donate</button>
+            <!-- Add Admin button here -->
+            <button class="btn btn-dark text-white" id="adminButton">Admin</button>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <form id="logoutForm" action="/logout?_method=DELETE" method="POST">
+                    <button class="nav-link fw-bold py-1 px-0 btn p=3 btn-dark text-white" type="submit">Logout</button>
+                </form>
+            </nav>
+        </div>
+        <br><br>
+    </header>
+
+    <main>
+        <br><br><center>
+        <p>Thank you for considering a donation!</p>
+        <p>Your support helps us make a difference.</p>
+        </center>
+
+        <!-- Donation form -->
+        <form action="https://www.onlinesbi.sbi/" method="POST" target="_blank">
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount" required>
+        
+            <label for="paymentMode">Select Payment Mode:</label>
+            <select id="paymentMode" name="paymentMode" required>
+                <option value="netBanking">Net Banking</option>
+                <option value="upi">UPI</option>
+                <option value="debitCard">Debit Card</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="gpay">GPay</option>
+            </select>
+        
+            <button type="submit">Proceed to Pay</button>
+        </form>
+        
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- Script to navigate to tribe.html when the Tribe button is clicked -->
+<script>
+    document.getElementById('tribeButton').addEventListener('click', function () {
+        window.location.href = '/tribe';
+    });
+
+    document.getElementById('viewButton').addEventListener('click', function () {
+        window.location.href = '/view1';
+    });
+
+    document.getElementById('adminButton').addEventListener('click', function () {
+        window.location.href = '/admin';
+    });
+
+    document.getElementById('donateButton').addEventListener('click', function () {
+        // Add the URL for the donation page
+        window.location.href = '/donate';
+    });
+
+    document.getElementById('logoButton').addEventListener('click', function () {
+        window.location.href = '/';
+    });
+
+    // Add script to submit the logout form and redirect to the login page
+    document.getElementById('logoutForm').addEventListener('submit', function () {
+        window.location.href = '/login';
+    });
+
+    document.getElementById('projectsButton').addEventListener('click', function () {
+        window.location.href = '/viewprojects';
+    });
+</script>
+</html>

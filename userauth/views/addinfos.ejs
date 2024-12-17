@@ -1,0 +1,90 @@
+<!-- addTribe.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Tribe</title>
+    <!-- Add your CSS or link to external stylesheets if needed -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("https://cdn.pixabay.com/photo/2016/09/19/22/46/lake-1681485_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjusted to cover the entire screen */
+    background-position: center; /* Center the background image */
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #343a40;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="tribe-container">
+        <h1 class="mt-4 mb-4">Add Tribe</h1>
+
+        <!-- Form for adding a tribe -->
+        <form action="/addinfos" method="POST">
+            <div class="mb-3">
+                <label for="tribe_name" class="form-label">Tribe Name:</label>
+                <input type="text" class="form-control" id="tribe_name" name="tribe_name" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="tribe_ID" class="form-label">Tribe ID:</label>
+                <input type="text" class="form-control" id="tribe_ID" name="tribe_ID" required>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Save Tribe Information</button>
+        </form>
+
+        <!-- Add your content here -->
+    </div>
+
+    <!-- Add your script tags or link to external scripts if needed -->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Table</title>
+    <!-- Add any additional styling or scripts as needed -->
+</head>
+<body>
+    <h1>View Data Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tribe Name</th>
+                <th>Tribe ID</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const info of data) { %>
+                <tr>
+                    <td><%= info.tribe_name %></td>
+                    <td><%= info.tribe_ID %></td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

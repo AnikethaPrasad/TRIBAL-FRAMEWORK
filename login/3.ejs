@@ -1,0 +1,32 @@
+<!-- viewcollection.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Collection</title>
+</head>
+<body>
+    <h1>Viewing Collection: <%= collectionName %></h1>
+    <table>
+        <thead>
+            <tr>
+                <!-- Adjust the column headers based on your collection schema -->
+                <th>Field 1</th>
+                <th>Field 2</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <% for (const item of data) { %>
+                <tr>
+                    <!-- Adjust the fields based on your collection schema -->
+                    <td><%= item.field1 %></td>
+                    <td><%= item.field2 %></td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

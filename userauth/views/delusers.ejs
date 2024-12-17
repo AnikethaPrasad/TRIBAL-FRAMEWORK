@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delete Users</title>
+    <!-- Additional head content if needed -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url("https://cdn.pixabay.com/photo/2016/09/19/22/46/lake-1681485_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjusted to cover the entire screen */
+    background-position: center; /* Center the background image */
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #343a40;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <form action="/delusers" method="POST">
+        <h1>Delete Users</h1>
+
+        <!-- Users deletion form -->
+        <label for="userID">User ID:</label>
+        <input type="text" id="userID" name="userID" required>
+
+        <button type="submit">Delete User</button>
+    </form>
+</body>
+</html>

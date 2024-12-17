@@ -1,0 +1,81 @@
+<!-- views/projectTable.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Table</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("https://cdn.pixabay.com/photo/2016/01/28/10/02/temple-1166023_1280.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: #343a40;
+    }
+
+    table {
+      width: 70%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    th {
+      background-color: #d9c109;
+      color: #ffffff;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Project Data Table</h1>
+  <br><br>
+  <table>
+    <thead>
+      <tr>
+        <th>Project Name</th>
+        <th>Project Description</th>
+        <th>Project Status</th>
+        <!-- Add more columns as needed -->
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const project of projects) { %>
+        <tr>
+          <td><%= project.projectName %></td>
+          <td><%= project.projectDescription %></td>
+          <td><%= project.projectStatus %></td>
+          <!-- Add more columns as needed -->
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+
+</html>

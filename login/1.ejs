@@ -1,0 +1,28 @@
+<!-- admin_dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <!-- Additional head content if needed -->
+</head>
+<body>
+    <h1>Welcome to the Admin Dashboard</h1>
+    
+    <!-- Display buttons for each table -->
+    <div>
+        <h2>Tables:</h2>
+        <ul>
+            <% tables.forEach(table => { %>
+                <li>
+                    <form action="/viewcollection" method="GET">
+                        <input type="hidden" name="name" value="<%= table %>">
+                        <button type="submit"><%= table %></button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <!-- Additional content for the admin dashboard -->
+</body>
+</html>

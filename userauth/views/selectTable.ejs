@@ -1,0 +1,24 @@
+<!-- selectTable.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Select Table</title>
+    <!-- Additional head content if needed -->
+</head>
+<body>
+    <h1>Select a Table</h1>
+    
+    <!-- Display the list of tables in a form -->
+    <form action="/admin/selectTable" method="post">
+        <label for="tableSelect">Select a table:</label>
+        <select id="tableSelect" name="selectedTable">
+            <% tables.forEach(table => { %>
+                <option value="<%= table %>"><%= table %></option>
+            <% }); %>
+        </select>
+        <button type="submit">Go</button>
+    </form>
+
+    <!-- Additional content if needed -->
+</body>
+</html>
